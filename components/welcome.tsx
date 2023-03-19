@@ -48,21 +48,11 @@ function Welcome({setEnter}: SectionProps): JSX.Element {
 
     const fetchData = () => {
         setLoading(true);
-        getWeather(city, setWeather);
-
-        setTimeout(() => {
-            setLoading(false);
-            setStatus(true);
-        }, 2000)
+        getWeather(city, setWeather, setLoading, setStatus);
     }
 
     useEffect(() => {
-        getWeather(city, setWeather);
-
-        setTimeout(() => {
-            setLoading(false);
-            setStatus(true);
-        }, 2000)
+        getWeather(city, setWeather, setLoading, setStatus);
     }, [])
 
     useEffect(() => {
@@ -156,15 +146,11 @@ const styles = StyleSheet.create({
       height: 730
     },
     sectionTitle: {
-      fontSize: 24,
-      fontWeight: '600',
-      borderColor: '#111',
-      backgroundColor: "#111",
-      borderWidth: 2,
+      fontSize: 40,
+      fontWeight: '900',
       textAlign: 'center',
       padding: 5,
-      borderRadius: 8,
-      color: "#fff",
+      color: "#b55240",
       marginBottom: 30
     },
     text: {

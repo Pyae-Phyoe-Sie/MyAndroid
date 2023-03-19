@@ -27,6 +27,7 @@ import {
 import Welcome from './components/welcome';
 import Unlock from './components/unlock';
 import Main from './components/main';
+import Month from './components/months';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -64,6 +65,7 @@ function App(): JSX.Element {
 
   const [unlock, setUnlock] = useState(false);
   const [enter, setEnter] = useState(false);
+  const [goPage, setGoPage] = useState("");
   
   console.log("unlock", unlock)
 
@@ -80,16 +82,21 @@ function App(): JSX.Element {
       <View style={{height: '100%'}} >
           {/* <Header /> */}
           {/* <Body /> */}
-          {(!unlock)
+          {/* {(!unlock)
             ? 
               <Unlock setUnlock={setUnlock}/>
             : 
-              (enter)
+              (enter && goPage === "")
                 ?
-                  <Main />
+                  <Main setGoPage={setGoPage}/>
                 :
                 <Welcome setEnter={setEnter}/>
-          }
+          } */}
+
+          {!unlock && <Unlock setUnlock={setUnlock}/>}
+          {unlock && enter && goPage === "" && <Main setGoPage={setGoPage}/>}
+          {unlock && !enter && goPage === "" && <Welcome setEnter={setEnter}/>}
+          {goPage === "month" && <Month />}
       </View>
     </SafeAreaView>
   );
