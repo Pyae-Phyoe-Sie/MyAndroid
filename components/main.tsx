@@ -1,5 +1,8 @@
 import React, { PropsWithChildren, useEffect, useState } from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, Pressable} from 'react-native';
+// import { Icon } from '@rneui/themed';
+
+import { FontAwesomeIcon, MaterialCommunityIcon, SimpleLineIcon } from './Icon';
 
 type SectionProps = PropsWithChildren<{
     setGoPage: Function;
@@ -18,13 +21,21 @@ function Main({setGoPage}: SectionProps): JSX.Element {
             ]}>
             <View style={{flex: 10}} />
             <View style={{flex: 1,flexDirection: 'row'}}>
-                <View style={styles.viewBoxMiddleGray} />
                 <View style={styles.viewBoxMiddleWhite}>
-                    <Text style={styles.text} onPress={() => setGoPage("month")}>Months</Text>
+                    <Pressable><FontAwesomeIcon name="home" size={"large"} color="gray" /></Pressable>
                 </View>
-                <View style={styles.viewBoxMiddleGray} />
-                <View style={styles.viewBoxMiddleWhite} />
-                <View style={styles.viewBoxMiddleGray} />
+                <View style={styles.viewBoxMiddleWhite}>
+                    <Pressable onPress={() => setGoPage("month")}><SimpleLineIcon name="grid" size={"large"} color="gray" /></Pressable>
+                </View>
+                <View style={styles.viewBoxMiddleWhite}>
+                    <MaterialCommunityIcon name="plus-circle" size={"extraLarge"} color="gray" />
+                </View>
+                <View style={styles.viewBoxMiddleWhite}>
+                    <MaterialCommunityIcon name="chart-box-outline" size={"large"} color="gray" />
+                </View>
+                <View style={styles.viewBoxMiddleWhite}>
+                    
+                </View>
             </View>
         </View>
     );

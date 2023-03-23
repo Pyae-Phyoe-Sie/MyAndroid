@@ -29,6 +29,8 @@ import Unlock from './components/unlock';
 import Main from './components/main';
 import Month from './components/months';
 
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -74,31 +76,33 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <View style={{height: '100%'}} >
-          {/* <Header /> */}
-          {/* <Body /> */}
-          {/* {(!unlock)
-            ? 
-              <Unlock setUnlock={setUnlock}/>
-            : 
-              (enter && goPage === "")
-                ?
-                  <Main setGoPage={setGoPage}/>
-                :
-                <Welcome setEnter={setEnter}/>
-          } */}
+    <SafeAreaProvider>
+      <SafeAreaView style={backgroundStyle}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <View style={{height: '100%'}} >
+            {/* <Header /> */}
+            {/* <Body /> */}
+            {/* {(!unlock)
+              ? 
+                <Unlock setUnlock={setUnlock}/>
+              : 
+                (enter && goPage === "")
+                  ?
+                    <Main setGoPage={setGoPage}/>
+                  :
+                  <Welcome setEnter={setEnter}/>
+            } */}
 
-          {!unlock && <Unlock setUnlock={setUnlock}/>}
-          {unlock && enter && goPage === "" && <Main setGoPage={setGoPage}/>}
-          {unlock && !enter && goPage === "" && <Welcome setEnter={setEnter}/>}
-          {goPage === "month" && <Month />}
-      </View>
-    </SafeAreaView>
+            {!unlock && <Unlock setUnlock={setUnlock}/>}
+            {unlock && enter && goPage === "" && <Main setGoPage={setGoPage}/>}
+            {unlock && !enter && goPage === "" && <Welcome setEnter={setEnter}/>}
+            {goPage === "month" && <Month />}
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
