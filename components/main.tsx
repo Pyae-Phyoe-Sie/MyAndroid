@@ -22,16 +22,16 @@ function Main({setGoPage}: SectionProps): JSX.Element {
             <View style={{flex: 10}} />
             <View style={{flex: 1,flexDirection: 'row'}}>
                 <View style={styles.viewBoxMiddleWhite}>
-                    <Pressable><FontAwesomeIcon name="home" size={"large"} color="gray" /></Pressable>
+                    <Pressable><FontAwesomeIcon name="home" size={"l"} color="gray" /></Pressable>
                 </View>
                 <View style={styles.viewBoxMiddleWhite}>
-                    <Pressable onPress={() => setGoPage("month")}><SimpleLineIcon name="grid" size={"large"} color="gray" /></Pressable>
+                    <Pressable onPress={() => setGoPage("month")}><SimpleLineIcon name="grid" size={"l"} color="gray" /></Pressable>
                 </View>
                 <View style={styles.viewBoxMiddleWhite}>
-                    <MaterialCommunityIcon name="plus-circle" size={"extraLarge"} color="gray" />
+                    <Pressable><MaterialCommunityIcon name="plus-circle" size={"xl"} color="gray" /></Pressable>
                 </View>
                 <View style={styles.viewBoxMiddleWhite}>
-                    <MaterialCommunityIcon name="chart-box-outline" size={"large"} color="gray" />
+                    <Pressable><MaterialCommunityIcon name="chart-box-outline" size={"l"} color="gray" /></Pressable>
                 </View>
                 <View style={styles.viewBoxMiddleWhite}>
                     

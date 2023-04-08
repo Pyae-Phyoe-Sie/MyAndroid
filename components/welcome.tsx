@@ -24,9 +24,10 @@ import getWeather from '../api/apiRequest';
 
 type SectionProps = PropsWithChildren<{
     setEnter: Function;
+    setGoPage: Function;
   }>;
   
-function Welcome({setEnter}: SectionProps): JSX.Element {
+function Welcome({setEnter, setGoPage}: SectionProps): JSX.Element {
     const [isDarkMode, setDarkMode] = useState(false);
 
     const [city, setCity] = useState('Singapore');
@@ -131,7 +132,10 @@ function Welcome({setEnter}: SectionProps): JSX.Element {
                         borderColor: isDarkMode ? Colors.white : Colors.black,
                     },
                     ]}
-                    onPress={() => setEnter(true)} >
+                    onPress={() => {
+                        setEnter(true);
+                        setGoPage("main")
+                    }} >
                     Enter
                 </Text>}
             </ImageBackground>

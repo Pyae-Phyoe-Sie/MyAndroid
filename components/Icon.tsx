@@ -13,10 +13,11 @@ export interface IconProps {
 }
 
 export const IconSizes = {
-    small: 18,
-    medium: 23,
-    large: 27,
-    extraLarge: 45,
+    s: 18,
+    m: 23,
+    l: 27,
+    xl: 45,
+    xxl: 60
 };
 
 export const FontAwesomeIcon = ({size, name, color}: IconProps) => (

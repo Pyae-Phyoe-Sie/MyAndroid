@@ -1,6 +1,7 @@
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 import {Button, ImageBackground, ScrollView, StyleSheet, Text, View} from 'react-native';
-import Swiper from 'react-native-swiper'
+import Swiper from 'react-native-swiper';
+import { FAB } from 'react-native-elements';
 
 type SectionProps = PropsWithChildren<{
   monthArray: [
@@ -198,6 +199,7 @@ const Month = () => {
 
   return (
       <>
+      <FAB title="Back" />
         {(!detailView.view)
           ? 
           <Swiper style={styles.wrapper} horizontal={false} loop={true}

@@ -96,9 +96,9 @@ function App(): JSX.Element {
                   <Welcome setEnter={setEnter}/>
             } */}
 
-            {!unlock && <Unlock setUnlock={setUnlock}/>}
-            {unlock && enter && goPage === "" && <Main setGoPage={setGoPage}/>}
-            {unlock && !enter && goPage === "" && <Welcome setEnter={setEnter}/>}
+            {goPage === "" && <Unlock setUnlock={setUnlock} setGoPage={setGoPage}/>}
+            {goPage === "main" && <Main setGoPage={setGoPage}/>}
+            {goPage === "welcome" && <Welcome setEnter={setEnter} setGoPage={setGoPage}/>}
             {goPage === "month" && <Month />}
         </View>
       </SafeAreaView>
