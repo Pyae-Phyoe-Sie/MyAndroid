@@ -6,16 +6,14 @@ import { MaterialCommunityIcon } from './Icon';
  
 type SectionProps = PropsWithChildren<{
     setUnlock: Function;
-    setGoPage: Function;
   }>;
   
-function Unlock({setUnlock, setGoPage}: SectionProps): JSX.Element {
+function Unlock({setUnlock}: SectionProps): JSX.Element {
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
         if (index === 1) {
             setUnlock(true);
-            setGoPage("welcome");
         }
     }, [index]);
 
